@@ -1,3 +1,6 @@
 import { BaseEntity } from '../../config/entities/base.entity';
 
-export class IotDeviceActivity extends BaseEntity {}
+export class IotDeviceActivityEntity extends BaseEntity {
+
+
+}
