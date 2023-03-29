@@ -1,10 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { configService } from './config/config.service';
 import { IotDeviceModule } from './iot-device/iot-device.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [IotDeviceModule],
+  imports: [
+    TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
+    IotDeviceModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

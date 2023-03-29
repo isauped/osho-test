@@ -4,6 +4,6 @@ import { IotDeviceController } from './iot-device.controller';
 
 @Module({
   controllers: [IotDeviceController],
-  providers: [IotDeviceService]
+  providers: [IotDeviceService],
 })
 export class IotDeviceModule {}
