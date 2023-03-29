@@ -41,11 +41,14 @@ class ConfigService {
 
       entities: ['**/*.entity{.ts,.js}'],
 
-      migrationsTableName: 'migration',
+      migrationsTableName: 'migrations',
 
-      migrations: ['src/migration/*.ts'],
+      migrations: [__dirname + '../../migration/*.js'],
 
-      ssl: this.isProduction(),
+      logging: [`warn`, `error`],
+      synchronize: true,
+      keepConnectionAlive: true,
+      ssl: false,
     };
   }
 }

@@ -1,11 +1,11 @@
 import { BaseEntity } from '../../config/entities/base.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { Expose } from 'class-transformer';
-import { IsBoolean, IsOptional } from 'class-validator';
+import { IsBoolean, IsInt, IsOptional } from "class-validator";
 import { IotDeviceEntity } from '../../iot-device/entities/iot-device.entity';
 
 @Entity({
-  name: 'IotDeviceActivity',
+  name: 'activities',
   orderBy: {
     activityDateTime: `DESC`,
   },
@@ -25,11 +25,17 @@ export class IotDeviceActivityEntity extends BaseEntity {
   })
   public activityDateTime?: Date;
 
+  @IsInt()
+  @Column({
+    nullable: false,
+  })
+  public deviceId: number;
+
   @Expose()
   @IsOptional()
   @ManyToOne(
     (ty: typeof IotDeviceEntity) => IotDeviceEntity,
-    (device: IotDeviceEntity) => device.IotDeviceActivity,
+    (device: IotDeviceEntity) => device.activities,
     {
       onDelete: 'CASCADE',
     },

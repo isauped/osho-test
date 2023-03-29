@@ -16,15 +16,23 @@ import { UpdateIotDeviceDto } from './dto/update-iot-device.dto';
     create: CreateIotDeviceDto,
     update: UpdateIotDeviceDto,
   },
+  params: {
+    publicId: {
+      field: 'id',
+      type: 'string',
+      primary: true,
+    },
+  },
   query: {
     alwaysPaginate: true,
     limit: 100,
-    join: {
-      IotDeviceActivity: {
-        eager: true,
-        alias: 'IotDeviceActivity',
-      },
-    },
+    // join: {
+    //   activities: {
+    //     eager: true,
+    //     exclude: ['deviceId', 'id'],
+    //     alias: 'activities',
+    //   },
+    // },
   },
 })
 @Controller('iot-device')

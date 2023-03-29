@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param } from "@nestjs/common";
 import { IotDeviceActivityService } from './iot-device-activity.service';
 import { Crud, CrudController } from '@nestjsx/crud';
 import { IotDeviceActivityEntity } from './entities/iot-device-activity.entity';
@@ -34,4 +34,8 @@ export class IotDeviceActivityController
   implements CrudController<IotDeviceActivityEntity>
 {
   constructor(public service: IotDeviceActivityService) {}
+  @Get('device/:id')
+  findOne(@Param('id') id: string) {
+    return "";//this.service.getLatestActivity(filters.rentalIds);
+  }
 }
