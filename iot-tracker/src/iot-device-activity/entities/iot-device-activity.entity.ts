@@ -5,7 +5,7 @@ import { IsBoolean, IsOptional } from 'class-validator';
 import { IotDeviceEntity } from '../../iot-device/entities/iot-device.entity';
 
 @Entity({
-  name: 'IotDeviceActivityEntity',
+  name: 'IotDeviceActivity',
   orderBy: {
     activityDateTime: `DESC`,
   },
@@ -29,7 +29,7 @@ export class IotDeviceActivityEntity extends BaseEntity {
   @IsOptional()
   @ManyToOne(
     (ty: typeof IotDeviceEntity) => IotDeviceEntity,
-    (device: IotDeviceEntity) => device.activities,
+    (device: IotDeviceEntity) => device.IotDeviceActivity,
     {
       onDelete: 'CASCADE',
     },

@@ -5,7 +5,7 @@ import { IsOptional, IsString } from 'class-validator';
 import { IotDeviceActivityEntity } from '../../iot-device-activity/entities/iot-device-activity.entity';
 
 @Entity({
-  name: 'IotDeviceEntity',
+  name: 'IotDevice',
   orderBy: {
     id: `ASC`,
   },
@@ -39,5 +39,5 @@ export class IotDeviceEntity extends BaseEntity {
       cascade: true,
       onDelete: 'CASCADE',
   })
-  public activities?: IotDeviceActivityEntity[];
+  public IotDeviceActivity?: IotDeviceActivityEntity[];
 }
