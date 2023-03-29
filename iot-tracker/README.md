@@ -8,6 +8,15 @@ Osho Technical Challange
 $ npm install
 ```
 
+## Installing Postgres
+
+Please donlowad and install Postgres before starting:
+https://www.postgresql.org/download/
+
+## Configuring .env
+
+The .env file is not committed and it should remain ignored. Please clone and rename .env.template to .env locally and add correct variables for your postgres db
+
 ## Running the app
 
 ```bash
