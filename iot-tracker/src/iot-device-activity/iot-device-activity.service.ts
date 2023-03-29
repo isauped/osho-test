@@ -8,4 +8,16 @@ export class IotDeviceActivityService extends TypeOrmCrudService<IotDeviceActivi
   constructor(@InjectRepository(IotDeviceActivityEntity) repo) {
     super(repo);
   }
+
+  public async findLatest(deviceId: number): Promise<IotDeviceActivityEntity> {
+    console.log(
+      `IotDeviceActivityService - findLatest - deviceId Id ${deviceId}`,
+    );
+    return this.repo
+      .createQueryBuilder('activities')
+      .select('activities')
+      .where('activities.deviceId = :deviceId', { deviceId })
+      .orderBy('activities.activityDateTime', 'DESC')
+      .getOne();
+  }
 }

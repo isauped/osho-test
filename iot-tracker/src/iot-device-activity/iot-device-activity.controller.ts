@@ -34,8 +34,8 @@ export class IotDeviceActivityController
   implements CrudController<IotDeviceActivityEntity>
 {
   constructor(public service: IotDeviceActivityService) {}
-  @Get('device/:id')
-  findOne(@Param('id') id: string) {
-    return "";//this.service.getLatestActivity(filters.rentalIds);
+  @Get('device/:deviceId')
+  findOne(@Param('deviceId') deviceId: number) {
+    return this.service.findLatest(deviceId);
   }
 }

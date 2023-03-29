@@ -30,7 +30,6 @@ import { UpdateIotDeviceDto } from './dto/update-iot-device.dto';
     //   activities: {
     //     eager: true,
     //     exclude: ['deviceId', 'id'],
-    //     alias: 'activities',
     //   },
     // },
   },
