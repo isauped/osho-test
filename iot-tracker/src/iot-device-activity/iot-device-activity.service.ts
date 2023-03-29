@@ -9,7 +9,7 @@ export class IotDeviceActivityService extends TypeOrmCrudService<IotDeviceActivi
     super(repo);
   }
 
-  public async findLatest(deviceId: number): Promise<IotDeviceActivityEntity> {
+  public async findLatest(deviceId: string): Promise<IotDeviceActivityEntity> {
     console.log(
       `IotDeviceActivityService - findLatest - deviceId Id ${deviceId}`,
     );

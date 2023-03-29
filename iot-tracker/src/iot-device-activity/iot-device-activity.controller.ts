@@ -35,7 +35,7 @@ export class IotDeviceActivityController
 {
   constructor(public service: IotDeviceActivityService) {}
   @Get('device/:deviceId')
-  findOne(@Param('deviceId') deviceId: number) {
+  findOne(@Param('deviceId') deviceId: string) {
     return this.service.findLatest(deviceId);
   }
 }

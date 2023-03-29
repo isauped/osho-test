@@ -1,7 +1,7 @@
 import { BaseEntity } from '../../config/entities/base.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { Expose } from 'class-transformer';
-import { IsBoolean, IsInt, IsOptional } from "class-validator";
+import { IsBoolean, IsInt, IsOptional, IsString } from "class-validator";
 import { IotDeviceEntity } from '../../iot-device/entities/iot-device.entity';
 
 @Entity({
@@ -25,11 +25,11 @@ export class IotDeviceActivityEntity extends BaseEntity {
   })
   public activityDateTime?: Date;
 
-  @IsInt()
+  @IsString()
   @Column({
     nullable: false,
   })
-  public deviceId: number;
+  public deviceId: string;
 
   @Expose()
   @IsOptional()
